@@ -1,2 +1,61 @@
-# Booking
- 
+# InfoTrack Tech Challenge
+
+Implement a booking API that will accept a booking time and respond indicating whether the reservation was successful or not.
+
+
+## Requirements
+
+- Assume that all bookings are for the same day (do not worry about handling dates).
+
+- InfoTrack's hours of business are 9am-5pm, all bookings must complete by 5pm (latest booking is 4:00pm).
+
+- Bookings are for 1 hour (booking at 9:00am means the spot is held from 9:00am to 9:59am).
+
+- InfoTrack accepts up to 4 simultaneous settlements.
+
+- API needs to accept POST requests of the following format:
+
+  ```json
+  {
+    "bookingTime": "09:30",
+    "name": "John Smith"
+  }
+  ```
+
+- Successful bookings should respond with an OK status and a booking Id in GUID form
+  ```json
+  {
+    "bookingId": "d90f8c55-90a5-4537-a99d-c68242a6012b"
+  }
+  ```
+
+- Requests for out of hours times should return a Bad Request status.
+- Requests with invalid data should return a Bad Request status.
+- Requests when all settlements at a booking time are reserved should return a Conflict status
+- The name property should be a non-empty string.
+- The bookingTime property should be a 24-hour time (00:00 - 23:59)
+- Bookings can be stored in-memory, it is fine for them to be forgotten when the application is restarted.
+- **Further assumption**: Booking time must be of minute 00 or 30. Doesn’t make sense when booking is made at 13:21.
+
+
+## Features
+1. Data validations for the request parameters before saving.
+2. Data storage is EntityFramework In-Memory.
+3. Layers (Controller -> Service -> Repository) based on MVC pattern.
+4. Controller handles the incoming request and outputs IActionResult accordingly.
+5. Service handles business logic, data validation.
+6. Repository handles extracting data, filtering, sorting and accessing database to save.
+7. Unit tests: BookingServiceTest.cs and TimeHelperTest.cs. All implements either [Theory] or [Fact] by XUnit.
+8. CI/CD workflows for build and unit tests. Can be seen in GitHub Actions.
+9. Data models: BookingRequest and BookingDetails.
+10. Delegate class: ServiceResult.cs.
+
+## How to test
+1. Clone this repo and open in Visual Studio.
+2. Start the solution
+3.1. Pass in json payload in SwaggerUI. SwaggerUI is automatically opened when Start the solution.
+https://localhost:7260/Booking
+3.2. cUrl after Start the solution.
+curl -X POST -H "Content-Type: application/json" -d "{ \"bookingTime\": \"09:00\", \"name\": \"John Smith\" }" https://localhost:7260/Booking
+
+
