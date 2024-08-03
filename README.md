@@ -42,20 +42,25 @@ Implement a booking API that will accept a booking time and respond indicating w
 1. Data validations for the request parameters before saving.
 2. Data storage is EntityFramework In-Memory.
 3. Layers (Controller -> Service -> Repository) based on MVC pattern.
-4. Controller handles the incoming request and outputs IActionResult accordingly.
-5. Service handles business logic, data validation.
-6. Repository handles extracting data, filtering, sorting and accessing database to save.
-7. Unit tests: BookingServiceTest.cs and TimeHelperTest.cs. All implements either [Theory] or [Fact] by XUnit.
+4. Controller: ```BookingController``` - handles the incoming request and outputs IActionResult accordingly.
+5. Service: ```BookingService``` and interface ```IBookingService``` - handles business logic, data validation.
+6. Repository: ```BookingRepository``` and interface ```IBookingRepository``` handles extracting data, filtering, sorting and accessing database to save.
+7. Unit tests: ```BookingServiceTest``` and ```TimeHelperTest```. Implements ```[Theory]``` and ```[Fact]``` by XUnit.
 8. CI/CD workflows for build and unit tests. Can be seen in GitHub Actions.
-9. Data models: BookingRequest and BookingDetails.
-10. Delegate class: ServiceResult.cs.
+9. Data models: ```BookingRequest``` to handle JSON payload and ```BookingDetails``` to store data.
+10. Delegate class: ServiceResult.cs - Accepts generic type for future expansion. For this project type GUID is used.
+11. Helper class: ```TimeHelper``` - Handles time data types.
 
 ## How to test
 1. Clone this repo and open in Visual Studio.
 2. Start the solution
-3.1. Pass in json payload in SwaggerUI. SwaggerUI is automatically opened when Start the solution.
+3.1. Use JSON payload in SwaggerUI. SwaggerUI is automatically opened when Start the solution at the link below.
+```
 https://localhost:7260/Booking
+```
 3.2. cUrl after Start the solution.
+```
 curl -X POST -H "Content-Type: application/json" -d "{ \"bookingTime\": \"09:00\", \"name\": \"John Smith\" }" https://localhost:7260/Booking
+```
 
 
