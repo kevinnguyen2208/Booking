@@ -29,6 +29,3 @@ jobs:
         run: dotnet build InfoTrackBooking/InfoTrackBooking.csproj
       - name: Run automated unit and integration tests
         run: dotnet test Tests/Tests.csproj /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
-        with:
-          workspace: App/App/App.csproj
-          implicit-restore: true
