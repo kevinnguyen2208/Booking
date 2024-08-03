@@ -1016,11 +1016,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj",
+      "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj",
       "projectName": "InfoTrackBooking",
-      "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj",
+      "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj",
       "packagesPath": "C:\\Users\\KevinNguyen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\obj\\",
+      "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

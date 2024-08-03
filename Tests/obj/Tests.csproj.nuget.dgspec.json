@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\Tests\\Tests.csproj": {}
+    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj": {
+    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj",
+        "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj",
         "projectName": "InfoTrackBooking",
-        "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj",
+        "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj",
         "packagesPath": "C:\\Users\\KevinNguyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\obj\\",
+        "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\Tests\\Tests.csproj": {
+    "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\Tests\\Tests.csproj",
+        "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\KevinNguyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\Tests\\obj\\",
+        "outputPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj": {
-                "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\InfoTrack\\InfoTrackBooking\\InfoTrackBooking.csproj"
+              "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj": {
+                "projectPath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\InfoTrackBooking\\InfoTrackBooking.csproj"
               }
             }
           }
