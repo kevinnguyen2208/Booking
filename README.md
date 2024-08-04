@@ -50,7 +50,7 @@ Implement a booking API that will accept a booking time and respond indicating w
 8. CI/CD workflows for build and unit tests. Can be seen in GitHub Actions.
 9. Data models: ```BookingRequest``` to handle JSON payload and ```BookingDetailsDto``` to store data.
 10. Mapper: Maps ```BookingDetailsDto``` to ```BookingDetailsViewModel``` in order to display to the request recipeient only necessary information.
-11. Delegate class: ```ServiceResult``` - Accepts generic type for future expansion. For this project type GUID is used.
+11. Delegate class: ```ServiceResult``` - Accepts generic type for future expansion. For this project type GUID and ```BookingDetailsViewModel``` are used.
 12. Helper class: ```TimeHelper``` - Handles time data types.
 
 ## How to test
