@@ -14,6 +14,20 @@ namespace InfoTrackBooking.Services
         }
 
         /// <summary>
+        /// Get all existing bookings
+        /// </summary>
+        public async Task<ServiceResult<IEnumerable<BookingDetailsViewModel>>> GetAllBookings()
+        {
+            IEnumerable<BookingDetailsViewModel> res = await _bookingRepository.GetAllBookings();
+            if (res == null || !res.Any())
+            {
+                return ServiceResult<IEnumerable<BookingDetailsViewModel>>.CreateErrorMessage("Empty booking schedule. All timeslots available.");
+            }
+
+            return new ServiceResult<IEnumerable<BookingDetailsViewModel>>(res);
+        }
+
+        /// <summary>
         /// validate booking parameters before saving
         /// </summary>
         public async Task<ServiceResult<Guid>> ExecuteBooking(string bookingTime, string name)
@@ -21,7 +35,7 @@ namespace InfoTrackBooking.Services
             //validate booking time or name is not null or empty
             if (string.IsNullOrEmpty(bookingTime) || string.IsNullOrEmpty(name))
             {
-                return ServiceResult<Guid>.CreateErrorMessage("Booking time and/or name must not be empty or null.");
+                return ServiceResult<Guid>.CreateErrorMessage("Booking time and/or name must not be empty or null.", ValidationTypes.InvalidParameters);
             }
 
             //validate booking time to be valid hh:mm format
@@ -29,7 +43,7 @@ namespace InfoTrackBooking.Services
             bool isValidTime = TimeSpan.TryParse(bookingTime, out var startTime);
             if (!isValidTimeFormat || !isValidTime) 
             {
-                return ServiceResult<Guid>.CreateErrorMessage("Booking time must be in hh:mm format.");
+                return ServiceResult<Guid>.CreateErrorMessage("Booking time must be in hh:mm format.", ValidationTypes.InvalidParameters);
             }
 
             //validate booking hours
@@ -69,8 +83,8 @@ namespace InfoTrackBooking.Services
         /// </summary>
         private async Task<bool> ValidateReservation(string startTime)
         {
-            List<BookingDetails> exsitingBookings = await _bookingRepository.GetExistingBookingsByStartTime(startTime);
-            if (exsitingBookings == null || exsitingBookings.Count < 4)
+            IEnumerable<BookingDetailsDto> exsitingBookings = await _bookingRepository.GetAllBookingsByStartTime(startTime);
+            if (exsitingBookings == null || exsitingBookings.Count() < 4)
             {
                 return true;
             }

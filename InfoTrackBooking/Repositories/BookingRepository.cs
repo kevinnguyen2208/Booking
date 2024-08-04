@@ -1,4 +1,5 @@
 ﻿using InfoTrackBooking.Data;
+using InfoTrackBooking.Mappers;
 using InfoTrackBooking.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,15 +14,21 @@ namespace InfoTrackBooking.Repositories
             _context = context;
         }
 
-        public async Task<List<BookingDetails>> GetExistingBookingsByStartTime(string startTime)
+        public async Task<IEnumerable<BookingDetailsViewModel>> GetAllBookings()
         {
-            List<BookingDetails> bookings = await _context.Bookings.ToListAsync();
-            return bookings.Where(f => f.StartTime == startTime).ToList();
+            IEnumerable<BookingDetailsDto> bookings = await _context.Bookings.ToArrayAsync();
+            return bookings.ToViewModel();
+        }
+
+        public async Task<IEnumerable<BookingDetailsDto>> GetAllBookingsByStartTime(string startTime)
+        {
+            IEnumerable<BookingDetailsDto> bookings = await _context.Bookings.Where(f => f.StartTime == startTime).ToArrayAsync();
+            return bookings;
         }
 
         public async Task<Guid> SaveBooking(string startTime, string endTime, string name)
         {
-            BookingDetails booking = new BookingDetails()
+            BookingDetailsDto booking = new BookingDetailsDto()
             {
                 BookingId = Guid.NewGuid(),
                 Name = name,

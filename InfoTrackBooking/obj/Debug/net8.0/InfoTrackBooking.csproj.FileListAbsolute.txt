@@ -69,3 +69,4 @@ C:\Users\KevinNguyen\OneDrive - ingenuous.com.au\Desktop\New folder\InfoTrack\Bo
 C:\Users\KevinNguyen\OneDrive - ingenuous.com.au\Desktop\New folder\InfoTrack\Booking\InfoTrackBooking\obj\Debug\net8.0\InfoTrackBooking.pdb
 C:\Users\KevinNguyen\OneDrive - ingenuous.com.au\Desktop\New folder\InfoTrack\Booking\InfoTrackBooking\obj\Debug\net8.0\InfoTrackBooking.genruntimeconfig.cache
 C:\Users\KevinNguyen\OneDrive - ingenuous.com.au\Desktop\New folder\InfoTrack\Booking\InfoTrackBooking\obj\Debug\net8.0\ref\InfoTrackBooking.dll
+C:\Users\KevinNguyen\OneDrive - ingenuous.com.au\Desktop\New folder\InfoTrack\Booking\InfoTrackBooking\bin\Debug\net8.0\AutoMapper.dll

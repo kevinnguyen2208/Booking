@@ -1,3 +1,4 @@
+using InfoTrackBooking.Mappers;
 using InfoTrackBooking.Models;
 using InfoTrackBooking.Repositories;
 using InfoTrackBooking.Services;
@@ -21,13 +22,16 @@ namespace Tests.UnitTests
             _service = SP.GetRequiredService<IBookingService>();
         }
 
-        private List<BookingDetails> BookingStorage = new List<BookingDetails>();
+        private List<BookingDetailsDto> BookingStorage = new List<BookingDetailsDto>();
         Guid BookingId = Guid.NewGuid();
         private void SetupBookingRepository()
         {
             Mock<IBookingRepository> mock = new Mock<IBookingRepository>(MockBehavior.Strict);
 
-            _ = mock.Setup(s => s.GetExistingBookingsByStartTime(It.IsAny<string>()))
+            _ = mock.Setup(s => s.GetAllBookings())
+                .ReturnsAsync(BookingStorage.ToViewModel);
+
+            _ = mock.Setup(s => s.GetAllBookingsByStartTime(It.IsAny<string>()))
                 .ReturnsAsync((string bookingTime) =>
                 {
                     return BookingStorage.Where(f => f.StartTime == bookingTime).ToList();
@@ -36,7 +40,7 @@ namespace Tests.UnitTests
             _ = mock.Setup(s => s.SaveBooking(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                 .ReturnsAsync((string bookingTime, string endTime, string name) =>
                 {
-                    BookingDetails booking = new BookingDetails()
+                    BookingDetailsDto booking = new BookingDetailsDto()
                     {
                         BookingId = BookingId,
                         Name = name,
@@ -55,7 +59,7 @@ namespace Tests.UnitTests
         {
             for (int i = 0; i < reservationCount; i++)
             {
-                BookingStorage.Add(new BookingDetails()
+                BookingStorage.Add(new BookingDetailsDto()
                 {
                     BookingId = Guid.NewGuid(),
                     Name = name,
@@ -155,7 +159,7 @@ namespace Tests.UnitTests
             string name = "John";
             ServiceResult<Guid> serviceResult = await _service.ExecuteBooking(startTime, name);
 
-            BookingDetails savedDetail = BookingStorage.First();
+            BookingDetailsDto savedDetail = BookingStorage.First();
             Assert.Equal(serviceResult.Value, savedDetail.BookingId);
             Assert.Equal(name, savedDetail.Name);
             Assert.Equal(startTime, savedDetail.StartTime);
@@ -181,6 +185,58 @@ namespace Tests.UnitTests
             Assert.Equal(ValidationTypes.None, booking3.Validation);
             Assert.Equal(ValidationTypes.None, booking4.Validation);
             Assert.Equal(ValidationTypes.ReservedTime, booking5.Validation);
+        }
+
+        /// <summary>
+        /// Get all existing bookings when there is none available
+        /// Expected: Error message returned says there's non available
+        /// </summary>
+        [Fact]
+        public async void GetExistingBookingWhenNoneAvailable()
+        {
+            ServiceResult<IEnumerable<BookingDetailsViewModel>> res = await _service.GetAllBookings();
+            Assert.Equal(ValidationTypes.NotFound, res.Validation);
+            Assert.Null(res.Value);
+        }
+
+        /// <summary>
+        /// Get all existing bookings when there are some available
+        /// Expected: Get the bookings with correct view model
+        /// </summary>
+        [Fact]
+        public async void GetExistingBookingWhenSomeAvailable()
+        {
+            string startTime = "12:00";
+            string startTime2 = "09:30";
+            string startTime3 = "16:00";
+            string startTime4 = "14:30";
+            string name = "John";
+            await _service.ExecuteBooking(startTime, name);
+            await _service.ExecuteBooking(startTime2, name);
+            await _service.ExecuteBooking(startTime3, name);
+            await _service.ExecuteBooking(startTime4, name);
+
+            ServiceResult<IEnumerable<BookingDetailsViewModel>> res = await _service.GetAllBookings();
+            Assert.Equal(ValidationTypes.None, res.Validation);
+            Assert.Equal(4, res.Value.Count());
+            Assert.Collection(res.Value, 
+                e =>
+                {
+                    Assert.Equal(startTime, e.StartTime);
+                },
+                e =>
+                {
+                    Assert.Equal(startTime2, e.StartTime);
+                },
+                e =>
+                {
+                    Assert.Equal(startTime3, e.StartTime);
+                },
+                e =>
+                {
+                    Assert.Equal(startTime4, e.StartTime);
+                }
+            );
         }
     }
 }

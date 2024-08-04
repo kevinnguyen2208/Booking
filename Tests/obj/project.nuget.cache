@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xOhDKbG9eQUaIAQTkblaGXYyx/HgWiLH7YKVPvOeC0y1ebkGcg1HRT0SgIVeYHPmHXU3IYeYaqa5bokBX3vEwQ==",
+  "dgSpecHash": "UozLjVLPNVybjp1RI/9pLI37mK8A1Z9cX6XuMh/TfdfIZezl9c1yuQJ1XPkba+FuPD2JNc6qXQF3/999307gSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\KevinNguyen\\OneDrive - ingenuous.com.au\\Desktop\\New folder\\InfoTrack\\Booking\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\KevinNguyen\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\KevinNguyen\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\KevinNguyen\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\KevinNguyen\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",

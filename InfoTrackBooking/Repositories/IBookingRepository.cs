@@ -4,7 +4,8 @@ namespace InfoTrackBooking.Repositories
 {
     public interface IBookingRepository
     {
-        Task<List<BookingDetails>> GetExistingBookingsByStartTime(string startTime);
+        Task<IEnumerable<BookingDetailsViewModel>> GetAllBookings();
+        Task<IEnumerable<BookingDetailsDto>> GetAllBookingsByStartTime(string startTime);
         Task<Guid> SaveBooking(string startTime, string endTime, string name);
     }
 }

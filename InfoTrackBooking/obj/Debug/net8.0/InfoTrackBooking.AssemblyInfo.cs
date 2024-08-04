@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InfoTrackBooking")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f68c639ab0ad8f2265207ae79f3e091777ac6bbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+003ab4df5eb7ba0f68080c8e3530b77664d7449c")]
 [assembly: System.Reflection.AssemblyProductAttribute("InfoTrackBooking")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InfoTrackBooking")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

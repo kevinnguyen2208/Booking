@@ -13,7 +13,7 @@
         public ValidationTypes Validation { get; set; }
         public string Message { get; set; }
 
-        public static ServiceResult<T> CreateErrorMessage(string errorMessage, ValidationTypes validation = ValidationTypes.InvalidParameters)
+        public static ServiceResult<T> CreateErrorMessage(string errorMessage, ValidationTypes validation = ValidationTypes.NotFound)
         {
             var result = new ServiceResult<T>(default(T))
             {

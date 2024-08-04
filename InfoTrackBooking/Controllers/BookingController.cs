@@ -16,6 +16,17 @@ namespace InfoTrackBooking.Controllers
             _bookingService = bookingService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllBookings()
+        {
+            ServiceResult<IEnumerable<BookingDetailsViewModel>> res = await _bookingService.GetAllBookings();
+            if (res.Validation == ValidationTypes.NotFound)
+            {
+                return NotFound(res.Message);
+            }
+            return Ok(res.Value);
+        }
+
         [HttpPost]
         public async Task<IActionResult> ExecuteBooking([FromBody] BookingRequest request)
         {
