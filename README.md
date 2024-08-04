@@ -56,11 +56,17 @@ Implement a booking API that will accept a booking time and respond indicating w
 ## How to test
 1. Clone this repo and open in Visual Studio.
 2. Start the solution
-3.1. Use JSON payload in SwaggerUI. SwaggerUI is automatically opened when Start the solution at the link below.
+3. Use JSON payload in SwaggerUI. SwaggerUI is automatically opened when Start the solution at the link below.
 ```
 https://localhost:7260/Booking
 ```
-3.2. cUrl after Start the solution.
+4. Alternatively, cUrl can be used.
+   
+GET request to get existing bookings
+```
+curl https://localhost:7260/Booking
+```
+POST request to post JSON payload and return validation message or GUID as ```bookingId``` if successful.
 ```
 curl -X POST -H "Content-Type: application/json" -d "{ \"bookingTime\": \"09:00\", \"name\": \"John Smith\" }" https://localhost:7260/Booking
 ```
