@@ -36,6 +36,7 @@ Implement a booking API that will accept a booking time and respond indicating w
 - The bookingTime property should be a 24-hour time (00:00 - 23:59)
 - Bookings can be stored in-memory, it is fine for them to be forgotten when the application is restarted.
 - **Further assumption**: Booking time must be of minute 00 or 30. Doesn’t make sense when booking is made at 13:21.
+- **Added feature**: GET request to get all existing bookings, to showcase ViewModel Mapper and adherent to MVC pattern.
 
 
 ## Features
@@ -47,9 +48,10 @@ Implement a booking API that will accept a booking time and respond indicating w
 6. Repository: ```BookingRepository``` and interface ```IBookingRepository``` handles extracting data, filtering, sorting and accessing database to save.
 7. Unit tests: ```BookingServiceTest``` and ```TimeHelperTest```. Implements ```[Theory]``` and ```[Fact]``` by XUnit.
 8. CI/CD workflows for build and unit tests. Can be seen in GitHub Actions.
-9. Data models: ```BookingRequest``` to handle JSON payload and ```BookingDetails``` to store data.
-10. Delegate class: ServiceResult.cs - Accepts generic type for future expansion. For this project type GUID is used.
-11. Helper class: ```TimeHelper``` - Handles time data types.
+9. Data models: ```BookingRequest``` to handle JSON payload and ```BookingDetailsDto``` to store data.
+10. Mapper: Maps ```BookingDetailsDto``` to ```BookingDetailsViewModel``` in order to display to the request recipeient only necessary information.
+11. Delegate class: ```ServiceResult``` - Accepts generic type for future expansion. For this project type GUID is used.
+12. Helper class: ```TimeHelper``` - Handles time data types.
 
 ## How to test
 1. Clone this repo and open in Visual Studio.
